@@ -8,7 +8,7 @@ import { VStack, Stack, Button, Text } from "@chakra-ui/react";
 
 export default function Example() {
   const [currentStep, setCurrentStep] = useState(21);
-  const [skipStep, setSkipStep] = useState(true);
+  const [skipStep, setSkipStep] = useState(false);
 
   const handleNextStep = (num: number) => {
     setCurrentStep(currentStep + num);
