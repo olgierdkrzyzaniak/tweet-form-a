@@ -42,7 +42,7 @@ function DeleteToast({ handleNextStep, setSkipStep }: ToastProps) {
         });
       }}
     >
-      Bad
+      Zgłoś
     </Button>
   );
 }

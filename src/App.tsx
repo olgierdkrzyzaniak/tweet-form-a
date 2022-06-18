@@ -37,7 +37,7 @@ export default function Example() {
       </VStack>
       {currentStep / 2 < 10 && currentStep % 2 === 0 ? (
         <VStack>
-          <Text>You perceive this post as harmful?</Text>
+          <Text>Uważasz ten post za szkodliwy?</Text>
 
           <Stack direction="row" spacing={4} align="center" p="5">
             <Button
@@ -46,7 +46,7 @@ export default function Example() {
               variant="solid"
               w="20"
             >
-              Good
+              Dalej
             </Button>
             {skipStep ? (
               <TweetToast
@@ -62,7 +62,7 @@ export default function Example() {
                 variant="solid"
                 w="20"
               >
-                Bad
+                Zgłoś
               </Button>
             )}
           </Stack>
