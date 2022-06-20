@@ -4,9 +4,16 @@ import React from "react";
 type ToastProps = {
   handleNextStep: (num: number) => void;
   setSkipStep: (bool: boolean) => void;
+  opinionRate: number[];
+  setOpinionRate: (arr: number[]) => void;
 };
 
-function DeleteToast({ handleNextStep, setSkipStep }: ToastProps) {
+function DeleteToast({
+  handleNextStep,
+  setSkipStep,
+  setOpinionRate,
+  opinionRate
+}: ToastProps) {
   const toast = useToast();
 
   return (
@@ -17,6 +24,7 @@ function DeleteToast({ handleNextStep, setSkipStep }: ToastProps) {
       w="20"
       onClick={() => {
         handleNextStep(2);
+        setOpinionRate([opinionRate[0], opinionRate[1] + 1]);
         toast({
           isClosable: true,
           status: "success",
@@ -38,7 +46,7 @@ function DeleteToast({ handleNextStep, setSkipStep }: ToastProps) {
               </VStack>
             </Box>
           ),
-          duration: 3000
+          duration: 2000
         });
       }}
     >

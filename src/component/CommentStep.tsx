@@ -43,7 +43,10 @@ const CommentStep = ({
           onClick={() => {
             handleNextStep(1);
             setSkipStep(!opinion);
-            setOpinionRate([opinionRate[0] + opinion ? 1 : 0, opinionRate[1]]);
+            setOpinionRate([
+              opinionRate[0] + (opinion ? 1 : 0),
+              opinionRate[1]
+            ]);
           }}
           colorScheme="blue"
           variant="solid"

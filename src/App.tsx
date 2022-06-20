@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TweetStep from "./component/TweetStep";
 import CommentStep from "./component/CommentStep";
 import FinalStep from "./component/FinalStep";
@@ -9,12 +9,14 @@ import { VStack, Stack, Button, Text } from "@chakra-ui/react";
 export default function Example() {
   const [currentStep, setCurrentStep] = useState(21);
   const [skipStep, setSkipStep] = useState(false);
-  const [clicks, setClicks] = useState(0);
+  const [clicks, setClicks] = useState(1);
   const [start, setStart] = useState(Date.now);
-  const [opinionRate, setOpinionRate] = useState([1, 1]);
+  const [opinionRate, setOpinionRate] = useState([0, 0]);
 
-  window.addEventListener("click", function () {
-    setClicks(clicks + 1);
+  useEffect(() => {
+    const increaseClicks = () => setClicks(clicks + 1);
+    window.addEventListener("click", increaseClicks);
+    return () => window.removeEventListener("click", increaseClicks);
   });
 
   const handleNextStep = (num: number) => {
@@ -34,12 +36,7 @@ export default function Example() {
     />
   ];
   const background = [
-    <FinalStep
-      handleNextStep={handleNextStep}
-      start={start}
-      clicks={clicks}
-      opinionRate={opinionRate}
-    />,
+    <FinalStep start={start} clicks={clicks} opinionRate={opinionRate} />,
     <InitialStep handleNextStep={handleNextStep} setStart={setStart} />
   ];
   return (
@@ -66,6 +63,8 @@ export default function Example() {
               <TweetToast
                 handleNextStep={handleNextStep}
                 setSkipStep={setSkipStep}
+                opinionRate={opinionRate}
+                setOpinionRate={setOpinionRate}
               />
             ) : (
               <Button

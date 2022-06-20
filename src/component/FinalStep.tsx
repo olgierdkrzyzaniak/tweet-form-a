@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import { Box, VStack, Text, Button, Heading } from "@chakra-ui/react";
+import { Box, VStack, Text, Button, Heading, Link } from "@chakra-ui/react";
+import axios from "axios";
 
 type StepProps = {
-  handleNextStep: (num: number) => void;
   start: Date;
   clicks: number;
   opinionRate: number[];
 };
 
-const CommentStep = ({
-  handleNextStep,
-  start,
-  clicks,
-  opinionRate
-}: StepProps) => {
+const FinalStep = ({ start, clicks, opinionRate }: StepProps) => {
+  const [disable, setDisable] = useState(false);
   return (
     <Box
       borderWidth="2px"
@@ -32,27 +28,42 @@ const CommentStep = ({
         </Text>
         <Button
           onClick={() => {
-            handleNextStep(1);
             const end = new Date();
-            const data = {
-              Wersja: 1,
+            const dane = {
+              Wersja: 2,
               Start: start.toLocaleString("pl-PL"),
               Koniec: end.toLocaleString("pl-PL"),
               "Czas trwania": end - start,
               Kliknięcia: clicks,
-              "Dodane opinie": opinionRate[1] / opinionRate[0]
+              "Dodane opinie": opinionRate[1],
+              Komentarze: opinionRate[0]
             };
-            console.log(data);
+            axios
+              .post("https://sheetdb.io/api/v1/926rldkzmr0fl", {
+                data: dane
+              })
+              .then((response) => {
+                console.log(response.data);
+              });
+            setDisable(true);
           }}
           colorScheme="blue"
           variant="solid"
           w="20"
+          isDisabled={disable}
         >
-          Zakończ
+          {disable ? "Wysłane" : "Zakończ"}
         </Button>
+        <Text>
+          Dodatkowo będę super wdzięczny jeśli zechcesz wypełnić króką ankietę
+          na temat badania.
+        </Text>
+        <Link href="https://chakra-ui.com" isExternal>
+          Chakra Design system
+        </Link>
       </VStack>
     </Box>
   );
 };
 
-export default CommentStep;
+export default FinalStep;
