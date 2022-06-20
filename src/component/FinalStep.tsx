@@ -1,11 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, VStack, Text, Button, Heading } from "@chakra-ui/react";
 
 type StepProps = {
   handleNextStep: (num: number) => void;
+  start: Date;
+  clicks: number;
+  opinionRate: number[];
 };
 
-const CommentStep = ({ handleNextStep }: StepProps) => {
+const CommentStep = ({
+  handleNextStep,
+  start,
+  clicks,
+  opinionRate
+}: StepProps) => {
   return (
     <Box
       borderWidth="2px"
@@ -23,7 +31,19 @@ const CommentStep = ({ handleNextStep }: StepProps) => {
           wyniki.
         </Text>
         <Button
-          onClick={() => handleNextStep(1)}
+          onClick={() => {
+            handleNextStep(1);
+            const end = new Date();
+            const data = {
+              Wersja: 1,
+              Start: start.toLocaleString("pl-PL"),
+              Koniec: end.toLocaleString("pl-PL"),
+              "Czas trwania": end - start,
+              Kliknięcia: clicks,
+              "Dodane opinie": opinionRate[1] / opinionRate[0]
+            };
+            console.log(data);
+          }}
           colorScheme="blue"
           variant="solid"
           w="20"

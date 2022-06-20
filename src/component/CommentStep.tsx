@@ -5,12 +5,16 @@ type TweetStepProps = {
   handleNextStep: (num: number) => void;
   tweetNumber: number;
   setSkipStep: (bool: boolean) => void;
+  opinionRate: number[];
+  setOpinionRate: (arr: number[]) => void;
 };
 
 const CommentStep = ({
   handleNextStep,
   tweetNumber,
-  setSkipStep
+  setSkipStep,
+  opinionRate,
+  setOpinionRate
 }: TweetStepProps) => {
   const [opinion, setOpinion] = useState("");
   function handleTextarea(event: any) {
@@ -39,6 +43,7 @@ const CommentStep = ({
           onClick={() => {
             handleNextStep(1);
             setSkipStep(!opinion);
+            setOpinionRate([opinionRate[0] + opinion ? 1 : 0, opinionRate[1]]);
           }}
           colorScheme="blue"
           variant="solid"

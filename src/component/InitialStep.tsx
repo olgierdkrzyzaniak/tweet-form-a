@@ -3,9 +3,12 @@ import { Box, VStack, Text, Button, Heading } from "@chakra-ui/react";
 
 type StepProps = {
   handleNextStep: (num: number) => void;
+  setStart: (date: Date) => void;
 };
 
-const CommentStep = ({ handleNextStep }: StepProps) => {
+const CommentStep = ({ handleNextStep, setStart }: StepProps) => {
+  //date: date.toLocaleString('pl-PL'),
+
   return (
     <Box
       borderWidth="2px"
@@ -22,7 +25,12 @@ const CommentStep = ({ handleNextStep }: StepProps) => {
           Zapraszam do wzięcia udziału w badaniu: coś tam coś tam coś tam coś
         </Text>
         <Button
-          onClick={() => handleNextStep(-21)}
+          onClick={() => {
+            handleNextStep(-21);
+            const date = new Date();
+            setStart(date);
+            //data.date = date.toLocaleString("pl-PL");
+          }}
           colorScheme="blue"
           variant="solid"
         >

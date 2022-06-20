@@ -9,6 +9,13 @@ import { VStack, Stack, Button, Text } from "@chakra-ui/react";
 export default function Example() {
   const [currentStep, setCurrentStep] = useState(21);
   const [skipStep, setSkipStep] = useState(false);
+  const [clicks, setClicks] = useState(0);
+  const [start, setStart] = useState(Date.now);
+  const [opinionRate, setOpinionRate] = useState([1, 1]);
+
+  window.addEventListener("click", function () {
+    setClicks(clicks + 1);
+  });
 
   const handleNextStep = (num: number) => {
     setCurrentStep(currentStep + num);
@@ -22,11 +29,18 @@ export default function Example() {
       handleNextStep={handleNextStep}
       tweetNumber={Math.floor(currentStep / 2) + 1}
       setSkipStep={setSkipStep}
+      opinionRate={opinionRate}
+      setOpinionRate={setOpinionRate}
     />
   ];
   const background = [
-    <FinalStep handleNextStep={handleNextStep} />,
-    <InitialStep handleNextStep={handleNextStep} />
+    <FinalStep
+      handleNextStep={handleNextStep}
+      start={start}
+      clicks={clicks}
+      opinionRate={opinionRate}
+    />,
+    <InitialStep handleNextStep={handleNextStep} setStart={setStart} />
   ];
   return (
     <VStack>
@@ -57,6 +71,7 @@ export default function Example() {
               <Button
                 onClick={() => {
                   handleNextStep(1);
+                  setOpinionRate([opinionRate[0], opinionRate[1] + 1]);
                 }}
                 colorScheme="red"
                 variant="solid"
