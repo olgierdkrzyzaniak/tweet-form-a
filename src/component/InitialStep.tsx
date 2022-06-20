@@ -6,9 +6,7 @@ type StepProps = {
   setStart: (date: Date) => void;
 };
 
-const CommentStep = ({ handleNextStep, setStart }: StepProps) => {
-  //date: date.toLocaleString('pl-PL'),
-
+const InitialStep = ({ handleNextStep, setStart }: StepProps) => {
   return (
     <Box
       borderWidth="2px"
@@ -29,7 +27,6 @@ const CommentStep = ({ handleNextStep, setStart }: StepProps) => {
             handleNextStep(-21);
             const date = new Date();
             setStart(date);
-            //data.date = date.toLocaleString("pl-PL");
           }}
           colorScheme="blue"
           variant="solid"
@@ -41,4 +38,4 @@ const CommentStep = ({ handleNextStep, setStart }: StepProps) => {
   );
 };
 
-export default CommentStep;
+export default InitialStep;

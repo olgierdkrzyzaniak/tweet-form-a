@@ -52,7 +52,7 @@ const CommentStep = ({
           variant="solid"
           w="20"
         >
-          Submit
+          Zatwierdź
         </Button>
       </VStack>
     </Box>

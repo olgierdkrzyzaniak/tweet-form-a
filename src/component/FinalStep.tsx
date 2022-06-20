@@ -35,7 +35,7 @@ const FinalStep = ({ start, clicks, opinionRate }: StepProps) => {
               Koniec: end.toLocaleString("pl-PL"),
               "Czas trwania": end - start,
               Kliknięcia: clicks,
-              "Dodane opinie": opinionRate[1],
+              Zgłoszone: opinionRate[1],
               Komentarze: opinionRate[0]
             };
             axios
