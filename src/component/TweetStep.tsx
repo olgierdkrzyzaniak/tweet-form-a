@@ -1,5 +1,5 @@
 import React from "react";
-import TweetEmbed from "react-tweet-embed";
+import { Tweet } from "react-twitter-widgets";
 
 import { Box, VStack, Heading } from "@chakra-ui/react";
 
@@ -35,10 +35,7 @@ const TweetStep = ({ handleNextStep, tweetNumber }: TweetStepProps) => {
     >
       <VStack>
         <Heading mt="5">Tweet: {tweetNumber}/10</Heading>
-        <TweetEmbed
-          tweetId={`${randomizedTweets[tweetNumber]}`}
-          placeholder="processing"
-        />
+        <Tweet tweetId={`${randomizedTweets[tweetNumber]}`} />
       </VStack>
     </Box>
   );
