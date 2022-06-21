@@ -21,9 +21,9 @@ const InitialStep = ({ handleNextStep, setStart }: StepProps) => {
 
         <Text pb="5">
           Zapraszam do wzięcia udziału w badaniu. Twoim zadaniem będzie ocena
-          czy post jest obraźliwy, szkodliwy lub czy mogłyby sprawić komuś
-          przykrość. Dodatkowo możesz zawrzeć krótki komentarz dlaczego uważasz
-          post za obraźliwy.
+          czy kolejne posty są obraźliwe, szkodliwe lub czy mogłyby sprawić
+          komuś przykrość. Dodatkowo możesz zawrzeć krótki komentarz dlaczego
+          uważasz post za obraźliwy.
         </Text>
         <Button
           onClick={() => {

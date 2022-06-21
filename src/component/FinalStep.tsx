@@ -54,11 +54,7 @@ const FinalStep = ({ start, clicks, opinionRate }: StepProps) => {
         >
           {disable ? "Wysłane" : "Zakończ"}
         </Button>
-        <Text>
-          Dodatkowo będę super wdzięczny jeśli zechcesz wypełnić krótki
-          kwestionariusz na temat aplikacji.
-        </Text>
-        <Text>Wróć do dokumentu na google forms.</Text>
+        <Text pt={5}>Wróć do dokumentu na google forms.</Text>
       </VStack>
     </Box>
   );
