@@ -20,7 +20,10 @@ const InitialStep = ({ handleNextStep, setStart }: StepProps) => {
         <Heading>Cześć!</Heading>
 
         <Text pb="5">
-          Zapraszam do wzięcia udziału w badaniu: coś tam coś tam coś tam coś
+          Zapraszam do wzięcia udziału w badaniu. Twoim zadaniem będzie ocena
+          czy post jest obraźliwy, szkodliwy lub czy mogłyby sprawić komuś
+          przykrość. Dodatkowo możesz zawrzeć krótki komentarz dlaczego uważasz
+          post za obraźliwy.
         </Text>
         <Button
           onClick={() => {

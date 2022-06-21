@@ -55,12 +55,10 @@ const FinalStep = ({ start, clicks, opinionRate }: StepProps) => {
           {disable ? "Wysłane" : "Zakończ"}
         </Button>
         <Text>
-          Dodatkowo będę super wdzięczny jeśli zechcesz wypełnić króką ankietę
-          na temat badania.
+          Dodatkowo będę super wdzięczny jeśli zechcesz wypełnić krótki
+          kwestionariusz na temat aplikacji.
         </Text>
-        <Link href="https://chakra-ui.com" isExternal>
-          Chakra Design system
-        </Link>
+        <Text>Wróć do dokumentu na google forms.</Text>
       </VStack>
     </Box>
   );
