@@ -36,7 +36,7 @@ const TweetStep = ({ handleNextStep, tweetNumber }: TweetStepProps) => {
       <VStack>
         <Heading mt="5">Tweet: {tweetNumber}/10</Heading>
         <TweetEmbed
-          id={`${randomizedTweets[tweetNumber]}`}
+          tweetId={`${randomizedTweets[tweetNumber]}`}
           placeholder="processing"
         />
       </VStack>
