@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Tweet } from "react-twitter-widgets";
-import { TwitterTweetEmbed } from "react-twitter-embed";
 
 import { Box, VStack, Heading } from "@chakra-ui/react";
 
