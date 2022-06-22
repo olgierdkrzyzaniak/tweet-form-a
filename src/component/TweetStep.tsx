@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Tweet } from "react-twitter-widgets";
+import { TwitterTweetEmbed } from "react-twitter-embed";
 
 import { Box, VStack, Heading } from "@chakra-ui/react";
 
@@ -25,6 +26,7 @@ type TweetStepProps = {
 };
 
 const TweetStep = ({ handleNextStep, tweetNumber }: TweetStepProps) => {
+  useEffect(() => {});
   return (
     <Box
       borderWidth="2px"
